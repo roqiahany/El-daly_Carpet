@@ -13,7 +13,8 @@ export default function ProductDetails() {
   const { category, id } = useParams();
   const images = data[category] || [];
   const arabicName = slugToArabic[category];
-  const productImage = images[id];
+  const productIndex = parseInt(id, 10);
+  const productImage = images[productIndex];
 
   if (!productImage) {
     return (
@@ -68,7 +69,7 @@ export default function ProductDetails() {
           {/* أزرار الأكشن */}
           <div className="flex gap-4">
             <a
-              href="https://wa.me/201205411686" // ← غيري الرقم ده لرقم الواتس الخاص بيكم بصيغة دولية (بدون + أو صفر في البداية)
+              href="https://wa.me/201205411686"
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1 bg-[#7e5a3d] hover:bg-[#5a3d2b] text-white py-3 rounded-lg text-center font-semibold transition"

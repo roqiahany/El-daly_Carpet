@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'; // 👈 الأيقونات
 import data from '../products.json';
 
 export default function Products() {
@@ -15,9 +16,21 @@ export default function Products() {
   const { category } = useParams();
   const images = data[slugMap[category]] || [];
 
-  // Pagination state
-  const itemsPerPage = 3; // 3 صفوف × 3 أعمدة
+  // عدد المنتجات لكل صفحة
+  const getItemsPerPage = () => {
+    if (window.innerWidth < 768) return 6; // موبايل: 3×3
+    return 9; // ديسكتوب: 4×3
+  };
+
+  const [itemsPerPage, setItemsPerPage] = useState(getItemsPerPage());
   const [currentPage, setCurrentPage] = useState(1);
+
+  // تحديث عند تغيير حجم الشاشة
+  useEffect(() => {
+    const handleResize = () => setItemsPerPage(getItemsPerPage());
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const totalPages = Math.ceil(images.length / itemsPerPage);
 
@@ -49,7 +62,7 @@ export default function Products() {
         ) : (
           <>
             {/* Grid of products */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-3 gap-4 sm:grid-cols-3 md:grid-cols-3">
               {currentItems.map((img, index) => (
                 <div
                   key={index}
@@ -59,7 +72,7 @@ export default function Products() {
                   <div className="w-full aspect-[3/4] bg-white flex items-center justify-center">
                     <img
                       src={img}
-                      alt={`${category}-${index}`}
+                      alt={`${category}-${startIndex + index + 1}`}
                       className="h-full w-full object-cover"
                     />
                   </div>
@@ -70,11 +83,13 @@ export default function Products() {
                       className="text-lg font-semibold text-[#5a3d2b]"
                       style={{ fontFamily: 'Cairo, sans-serif' }}
                     >
-                      {category} {index + 1}
+                      {category} {startIndex + index + 1}
                     </h3>
                     <button
                       onClick={() =>
-                        navigate(`/product/${slugMap[category]}/${index}`)
+                        navigate(
+                          `/product/${slugMap[category]}/${startIndex + index}`
+                        )
                       }
                       className="bg-[#7e5a3d] hover:bg-[#5a3d2b] text-white w-full py-2 rounded-lg text-sm transition"
                       style={{ fontFamily: 'Tajawal, sans-serif' }}
@@ -87,13 +102,13 @@ export default function Products() {
             </div>
 
             {/* Pagination */}
-            <div className="flex justify-center items-center gap-4 mt-10">
+            <div className="flex justify-center items-center gap-6 mt-10">
               <button
                 onClick={() => goToPage(currentPage - 1)}
                 disabled={currentPage === 1}
-                className="px-4 py-2 rounded-lg bg-[#fdfaf8] text-[#5a3d2b] shadow hover:bg-[#e8d9cc] disabled:opacity-50"
+                className="p-3 rounded-full bg-[#fdfaf8] text-[#5a3d2b] shadow hover:bg-[#e8d9cc] disabled:opacity-50"
               >
-                السابق
+                <FiChevronLeft size={24} />
               </button>
 
               <span
@@ -106,9 +121,9 @@ export default function Products() {
               <button
                 onClick={() => goToPage(currentPage + 1)}
                 disabled={currentPage === totalPages}
-                className="px-4 py-2 rounded-lg bg-[#fdfaf8] text-[#5a3d2b] shadow hover:bg-[#e8d9cc] disabled:opacity-50"
+                className="p-3 rounded-full bg-[#fdfaf8] text-[#5a3d2b] shadow hover:bg-[#e8d9cc] disabled:opacity-50"
               >
-                التالي
+                <FiChevronRight size={24} />
               </button>
             </div>
           </>

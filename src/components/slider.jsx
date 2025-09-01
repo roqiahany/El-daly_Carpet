@@ -83,8 +83,8 @@ export default function Slider() {
             prevEl: '.custom-prev',
           }}
           breakpoints={{
-            0: { slidesPerView: 1 },
-            640: { slidesPerView: 2 },
+            0: { slidesPerView: 3 },
+            640: { slidesPerView: 3 },
             1024: { slidesPerView: 3 },
             1280: { slidesPerView: 4 },
           }}
