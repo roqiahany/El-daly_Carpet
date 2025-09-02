@@ -61,13 +61,21 @@ export default function Products() {
           </p>
         ) : (
           <>
+           
             {/* Grid of products */}
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-3">
               {currentItems.map((img, index) => (
                 <div
                   key={index}
-                  className="bg-[#fdfaf8] shadow-md rounded-lg overflow-hidden hover:scale-105 transition flex flex-col"
+                  className="relative bg-[#fdfaf8] shadow-md rounded-lg overflow-hidden hover:scale-105 transition flex flex-col"
                 >
+                  {/* لابل الخصم */}
+                  {category === 'خصومات' && (
+                    <div className="absolute top-0 right-0 bg-[#7e5a3d]/80 text-white text-xs sm:text-sm font-bold px-3 py-1 rounded-lg shadow">
+                      %خصم 50
+                    </div>
+                  )}
+
                   {/* الصورة */}
                   <div className="w-full aspect-[3/4] bg-white flex items-center justify-center">
                     <img

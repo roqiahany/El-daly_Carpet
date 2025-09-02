@@ -9,6 +9,7 @@ import Slider from './components/slider';
 import ProductDetails from './pages/ProductDetails';
 import About from './components/Apout';
 import Contact from './components/Contact';
+import Cart from './pages/Cart';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/About" element={<About />} />
           <Route path="/offers" element={<Offers />} />
           <Route path="/Contact" element={<Contact />} />
+          <Route path="/Cart" element={<Cart />} />
         </Routes>
       </div>
     </Router>

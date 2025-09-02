@@ -91,7 +91,14 @@ export default function Slider() {
         >
           {categories.map((cat) => (
             <SwiperSlide key={cat.slug}>
-              <div className="bg-[#fdfaf8] shadow-md rounded-lg overflow-hidden hover:scale-105 transition flex flex-col my-5 ">
+              <div className="relative bg-[#fdfaf8] shadow-md rounded-lg overflow-hidden hover:scale-105 transition flex flex-col my-5 ">
+                {/* لابل الخصم */}
+                {cat.slug === 'خصومات' && (
+                  <div className="absolute top-0 right-0 bg-[#7e5a3d]/80 text-white text-xs sm:text-sm font-bold px-3 py-1 rounded-lg shadow">
+                    %خصم 50
+                  </div>
+                )}
+
                 <div className="w-full aspect-[3/4] bg-white flex items-center justify-center">
                   <img
                     src={cat.image}
@@ -99,6 +106,7 @@ export default function Slider() {
                     className="max-h-full max-w-full object-contain"
                   />
                 </div>
+
                 <div className="p-4 pb-0 pe-0 ps-0 flex flex-col items-center flex-grow gap-3">
                   <h3
                     className="text-sm sm:text-base font-semibold text-[#5a3d2b] text-center truncate"

@@ -1,11 +1,11 @@
 export default function About() {
   return (
-    <div id="about" className=" bg-[#f8f1ec] py-44 px-6">
+    <div id="about" className=" bg-[#f8f1ec] py-24 px-6">
       <h2
         className="text-3xl font-bold text-[#5a3d2b] mb-6 text-center pb-12"
         style={{ fontFamily: 'Cairo, sans-serif' }}
       >
-        من نحن؟
+        عن مصنع الدالى للسجاد
       </h2>
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10 items-center">
         {/* الصورة */}
@@ -18,24 +18,26 @@ export default function About() {
         </div>
 
         {/* التفاصيل */}
-        <div className="flex-1">
+        <div className="flex-1 text-right">
           <p
-            className="text-gray-700 leading-loose text-lg"
+            className="text-[#5a3d2b] leading-loose text-lg"
             style={{ fontFamily: 'Tajawal, sans-serif' }}
           >
-            تم تأسيس هذا المصنع منذ أكثر من{' '}
-            <span className="font-semibold">7 سنوات</span> في محافظة الشرقية،
-            ونجحنا خلال هذه الفترة في التعاون مع أكثر من{' '}
-            <span className="font-semibold">50 محل</span> لبيع السجاد داخل مصر.
+            <span className="font-semibold">
+              مصنع الدالي للسجاد اليدوي – بلبيس
+            </span>
             <br />
-            كما قمنا بتجهيز أكثر من{' '}
-            <span className="font-semibold">200 شقة</span> في جميع أنحاء جمهورية
-            مصر العربية، ونسعى قريبًا للتوسع في جميع دول العالم.
+            نقدم لكم أحدث وأفضل أنواع{' '}
+            <span className="font-semibold">السجاد المودرن</span> الذي يتميز
+            بألوانه الجذّابة وتصميماته العصرية، مع ضمان جودة عالية وخامات متينة.
             <br />
-            اكتسبنا ثقة عملائنا بفضل الجودة العالية، التصميمات العصرية، والخامات
-            المتينة التي تليق بمنازلهم. هدفنا دائمًا أن نوفر لك سجادة تُضفي{' '}
-            <span className="font-semibold">فخامة</span>،
-            <span className="font-semibold">جاذبية</span>، وأجواء راقية في بيتك.
+            تتميز منتجاتنا بأنها بأسعار{' '}
+            <span className="font-semibold">المصنع المباشرة</span> وليست أسعار
+            التجار، لأننا نحن المصنعون الذين نورد للتجار والموردين.
+            <br />
+            هدفنا أن نمنح كل بيت لمسة من{' '}
+            <span className="font-semibold">الفخامة</span> والراحة مع إمكانية
+            تنفيذ المقاسات الخاصة بك.
           </p>
         </div>
       </div>

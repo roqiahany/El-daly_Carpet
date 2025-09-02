@@ -1,33 +1,62 @@
+import { FaWhatsapp, FaFacebookF, FaPhoneAlt } from 'react-icons/fa';
+
 export default function Contact() {
   return (
-    <div id="contact" className="  bg-[#fdfaf8] py-44 px-6">
+    <div id="contact" className="bg-[#fdfaf8] py-24 px-6">
       <h2
-        className="text-3xl font-bold text-[#5a3d2b]  text-center mb-20"
+        className="text-3xl font-bold text-[#5a3d2b] text-center mb-20"
         style={{ fontFamily: 'Cairo, sans-serif' }}
       >
         تواصل معنا
       </h2>
+
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* تفاصيل التواصل */}
-        <div>
+        <div className="flex flex-col items-center justify-center text-right">
           <p
-            className="text-gray-700 mb-6 leading-loose text-lg"
+            className="text-[#5a3d2b]  mb-10 leading-loose text-lg"
             style={{ fontFamily: 'Tajawal, sans-serif' }}
           >
             نرحب دائمًا باستفساراتك واقتراحاتك. يمكنك التواصل معنا مباشرة عبر
-            رقم الواتساب الخاص بنا للرد على جميع أسئلتك بسرعة واحترافية.
-            <br />
-            هدفنا أن نقدم لك أفضل خدمة ممكنة، وأن نكون دائمًا قريبين منك.
+            الهاتف أو الواتساب أو متابعة صفحتنا على فيسبوك. هدفنا أن نقدم لك
+            أفضل خدمة ممكنة، وأن نكون دائمًا قريبين منك.
           </p>
-          <a
-            href="https://wa.me/201205411686" // ← رقمك
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-[#7e5a3d] hover:bg-[#5a3d2b] text-white px-6 py-3 rounded-lg font-semibold inline-block transition"
-            style={{ fontFamily: 'Tajawal, sans-serif' }}
-          >
-            تواصل عبر واتساب
-          </a>
+
+          <div className="flex flex-col gap-4 w-full max-w-sm">
+            {/* زر الهاتف */}
+            <a
+              href="tel:01286178631"
+              className="flex items-center justify-center gap-3 bg-[#7e5a3d] hover:bg-[#5a3d2b] text-white px-6 py-3 rounded-lg font-semibold transition"
+              style={{ fontFamily: 'Tajawal, sans-serif' }}
+            >
+              <FaPhoneAlt className="text-xl" />
+              تواصل عبر الهاتف
+            </a>
+
+            {/* زر واتساب */}
+            <a
+              href="https://wa.me/201286178631"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-3 bg-[#7e5a3d] hover:bg-[#5a3d2b] text-white px-6 py-3 rounded-lg font-semibold transition"
+              style={{ fontFamily: 'Tajawal, sans-serif' }}
+            >
+              <FaWhatsapp className="text-xl" />
+              تواصل عبر واتساب
+            </a>
+
+            {/* زر فيسبوك */}
+            <a
+              href="https://www.facebook.com/Moderncarpets1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-3 bg-[#7e5a3d] hover:bg-[#5a3d2b] text-white px-6 py-3 rounded-lg font-semibold transition"
+              style={{ fontFamily: 'Tajawal, sans-serif' }}
+            >
+              <FaFacebookF className="text-xl" />
+              صفحتنا على فيسبوك
+            </a>
+          </div>
         </div>
 
         {/* الفورم */}
