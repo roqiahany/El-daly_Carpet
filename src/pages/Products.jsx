@@ -18,7 +18,7 @@ export default function Products() {
 
   // عدد المنتجات لكل صفحة
   const getItemsPerPage = () => {
-    if (window.innerWidth < 768) return 6; // موبايل: 3×3
+    if (window.innerWidth < 768) return 4;
     return 9; // ديسكتوب: 4×3
   };
 
@@ -62,7 +62,7 @@ export default function Products() {
         ) : (
           <>
             {/* Grid of products */}
-            <div className="grid grid-cols-3 gap-4 sm:grid-cols-3 md:grid-cols-3">
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-3">
               {currentItems.map((img, index) => (
                 <div
                   key={index}
@@ -78,23 +78,24 @@ export default function Products() {
                   </div>
 
                   {/* الاسم + زر */}
-                  <div className="pt-4 flex flex-col items-center gap-3 flex-1 justify-between">
+                  <div className="pt-4 flex flex-col flex-1 justify-between items-center gap-3">
                     <h3
-                      className="text-lg font-semibold text-[#5a3d2b]"
+                      className="text-base sm:text-lg font-semibold text-[#5a3d2b] text-center"
                       style={{ fontFamily: 'Cairo, sans-serif' }}
                     >
                       {category} {startIndex + index + 1}
                     </h3>
+
                     <button
                       onClick={() =>
                         navigate(
                           `/product/${slugMap[category]}/${startIndex + index}`
                         )
                       }
-                      className="bg-[#7e5a3d] hover:bg-[#5a3d2b] text-white w-full py-2 rounded-lg text-sm transition"
+                      className="bg-[#7e5a3d] hover:bg-[#5a3d2b] text-white w-full py-2 rounded-lg text-xs sm:text-sm transition mt-auto"
                       style={{ fontFamily: 'Tajawal, sans-serif' }}
                     >
-                      عرض التفاصيل
+                      التفاصيل
                     </button>
                   </div>
                 </div>
@@ -108,11 +109,11 @@ export default function Products() {
                 disabled={currentPage === 1}
                 className="p-3 rounded-full bg-[#fdfaf8] text-[#5a3d2b] shadow hover:bg-[#e8d9cc] disabled:opacity-50"
               >
-                <FiChevronLeft size={24} />
+                <FiChevronLeft size={18} className="sm:w-6 sm:h-6" />
               </button>
 
               <span
-                className="text-[#5a3d2b]"
+                className="text-[#5a3d2b] text-xs sm:text-sm whitespace-nowrap"
                 style={{ fontFamily: 'Tajawal, sans-serif' }}
               >
                 صفحة {currentPage} من {totalPages}
@@ -123,7 +124,7 @@ export default function Products() {
                 disabled={currentPage === totalPages}
                 className="p-3 rounded-full bg-[#fdfaf8] text-[#5a3d2b] shadow hover:bg-[#e8d9cc] disabled:opacity-50"
               >
-                <FiChevronRight size={24} />
+                <FiChevronRight size={18} className="sm:w-6 sm:h-6" />
               </button>
             </div>
           </>

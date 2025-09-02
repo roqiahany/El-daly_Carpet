@@ -32,7 +32,7 @@ const categories = [
     slug: 'أطفال',
   },
   {
-    name: '50%  خصومات',
+    name: '50%خصومات',
     image:
       'https://res.cloudinary.com/dhhjspn72/image/upload/v1755679045/offer-7_qv9rz5.jpg',
     slug: 'خصومات',
@@ -83,8 +83,8 @@ export default function Slider() {
             prevEl: '.custom-prev',
           }}
           breakpoints={{
-            0: { slidesPerView: 3 },
-            640: { slidesPerView: 3 },
+            0: { slidesPerView: 2 },
+            640: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
             1280: { slidesPerView: 4 },
           }}
@@ -101,17 +101,18 @@ export default function Slider() {
                 </div>
                 <div className="p-4 pb-0 pe-0 ps-0 flex flex-col items-center flex-grow gap-3">
                   <h3
-                    className="text-lg font-semibold text-[#5a3d2b]"
+                    className="text-sm sm:text-base font-semibold text-[#5a3d2b] text-center truncate"
                     style={{ fontFamily: 'Cairo, sans-serif' }}
                   >
                     {cat.name}
                   </h3>
+
                   <Link
                     to={`/products/${cat.slug}`}
                     style={{ fontFamily: 'Tajawal, sans-serif' }}
-                    className="bg-[#7e5a3d] hover:bg-[#5a3d2b] text-white w-full block text-center py-2 rounded-lg text-lg transition m-0"
+                    className="bg-[#7e5a3d] hover:bg-[#5a3d2b] text-white w-full block text-center py-2 rounded-lg text-sm sm:text-base lg:text-lg transition m-0"
                   >
-                    عرض المنتجات
+                    عرض
                   </Link>
                 </div>
               </div>

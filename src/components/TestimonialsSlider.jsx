@@ -54,31 +54,35 @@ export default function TestimonialsSlider() {
             prevEl: '.custom-prev',
           }}
           breakpoints={{
-            0: { slidesPerView: 3 },
-            640: { slidesPerView: 3 },
+            0: { slidesPerView: 2 },
+            640: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
           }}
         >
           {testimonials.map((testimonial, index) => (
             <SwiperSlide key={index}>
               <div className="bg-[#fdfaf8] shadow-md rounded-lg overflow-hidden hover:scale-105 transition flex flex-col my-5">
-                <div className="w-full aspect-square bg-white flex items-center justify-center">
+                {/* الصورة */}
+                <div className="w-full h-64 bg-white flex items-center justify-center">
                   <img
                     src={testimonial.img}
                     alt={`testimonial-${index + 1}`}
-                    className="h-full w-full object-contain"
+                    className="h-full w-full object-cover"
                   />
                 </div>
+
+                {/* النصوص */}
                 <div className="p-4 flex flex-col items-center text-center">
                   <div className="flex mb-2">
                     {Array.from({ length: testimonial.rating }).map((_, i) => (
-                      <FaStar key={i} className="text-yellow-500 w-5 h-5" />
+                      <FaStar key={i} className="text-yellow-500 w-4 h-4" />
                     ))}
                   </div>
-                  <p className="text-[#5a3d2b] text-lg mb-2">
+                  <p className="text-[#5a3d2b] text-xs sm:text-sm md:text-base mb-1 truncate">
                     {testimonial.comment}
                   </p>
-                  <span className="text-[#7e5a3d] font-semibold">
+
+                  <span className="text-[#7e5a3d] font-medium text-sm">
                     {testimonial.name}
                   </span>
                 </div>

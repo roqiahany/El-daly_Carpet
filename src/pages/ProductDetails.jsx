@@ -56,13 +56,12 @@ export default function ProductDetails() {
               </span>
               ، مما يجعلها الاختيار الأمثل لعشاق الجودة والفخامة.
               <br />
-              الأسعار تبدأ من <span className="font-semibold">1500</span> جنيه
-              وحتى <span className="font-semibold">3000</span> جنيه حسب المقاسات
-              والخامات.
+              الأسعار تبدأ من <span className="font-semibold">450</span> جنيه و
+              تختلف حسب المقاسات المطلوبه .
             </p>
 
             <p className="text-lg font-semibold text-[#7e5a3d] mb-6">
-              السعر المبدئي: 1500 جنيه
+              السعر المبدئي: 450 جنيه
             </p>
           </div>
 
