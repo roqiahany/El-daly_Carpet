@@ -24,34 +24,38 @@ export default function Cart() {
             {cart.map((item) => (
               <div
                 key={item.id}
-                className="flex items-center justify-between bg-white p-4 rounded-lg shadow"
+                className="flex items-center justify-between bg-white p-4 rounded-lg shadow flex-wrap sm:flex-nowrap"
               >
                 <img
                   src={item.image}
                   alt={item.name}
-                  className="w-20 h-20 object-cover rounded"
+                  className="w-16 h-16 sm:w-20 sm:h-20 object-cover rounded"
                 />
-                <div className="flex-1 mx-4">
-                  <h3 className="font-semibold text-[#5a3d2b]">{item.name}</h3>
-                  <p className="text-[#5a3d2b]">{item.price} جنيه للواحدة</p>
+                <div className="flex-1 mx-2 sm:mx-4">
+                  <h3 className="font-semibold text-[#5a3d2b] text-sm sm:text-base">
+                    {item.name}
+                  </h3>
+                  <p className="text-[#5a3d2b] text-xs sm:text-sm">
+                    {item.price} جنيه للواحدة
+                  </p>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1 sm:gap-2">
                   <button
                     onClick={() => updateQuantity(item.id, -1)}
-                    className="px-2 py-1 bg-[#e8d9cc] rounded hover:bg-[#d4c1b0]"
+                    className="px-2 py-0.5 sm:px-2 sm:py-1 bg-[#e8d9cc] rounded hover:bg-[#d4c1b0] text-sm sm:text-base"
                   >
                     -
                   </button>
-                  <span>{item.quantity}</span>
+                  <span className="text-sm sm:text-base">{item.quantity}</span>
                   <button
                     onClick={() => updateQuantity(item.id, 1)}
-                    className="px-2 py-1 bg-[#e8d9cc] rounded hover:bg-[#d4c1b0]"
+                    className="px-2 py-0.5 sm:px-2 sm:py-1 bg-[#e8d9cc] rounded hover:bg-[#d4c1b0] text-sm sm:text-base"
                   >
                     +
                   </button>
                   <button
                     onClick={() => removeItem(item.id)}
-                    className="ml-2 text-red-500 hover:text-red-700"
+                    className="ml-1 sm:ml-2 text-red-500 hover:text-red-700 text-sm sm:text-base"
                   >
                     <FaTrash />
                   </button>
